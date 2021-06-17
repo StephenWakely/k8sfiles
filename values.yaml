@@ -1,0 +1,10 @@
+fullnameOverride: noogfloog
+dataVolume:
+  hostPath:
+    path: /var/lib/test-vector-twlq3-vector-agent-vector/
+sinks:
+  stdout: 
+    type: "console"
+    inputs: ["kubernetes_logs"]
+    target: "stdout"
+    encoding: "json"

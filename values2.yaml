@@ -1,0 +1,21 @@
+fullnameOverride: "test-vector-gjzvs-vector-agent"
+var-libReadOnly: false
+sinks:
+  stdout:
+    type: "console"
+    inputs: ["kubernetes_logs"]
+    target: "stdout"
+    encoding: "json"
+
+extraVolumeMounts:
+  - name: var-lib
+    mountPath: /var/writablelib
+    readOnly: false
+ 
+lifecycle:
+  preStop:
+    exec:
+      command:
+        - sh
+        - -c
+        - rm -rf /var/writablelib/vector

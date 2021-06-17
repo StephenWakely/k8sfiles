@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: zork
+spec:
+        containers:
+        - name: zork
+          image: bash:latest
+          command: 
+          - bash 
+          args: 
+          - -c 
+          - for ((i=0; i <= 50000; i++)); do echo "COUNT $i"; done
+          

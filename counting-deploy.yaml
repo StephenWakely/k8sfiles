@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: zork
+spec:
+        replicas: 4
+        selector: 
+          matchLabels:
+            thing: thang
+        template:
+          metadata:
+            labels:
+              thing: thang
+          spec:
+            containers:
+            - name: zork
+              image: bash:latest
+              command: 
+              - bash 
+              args: 
+              - -c 
+              - for ((i=0; i <= 50000000; i++)); do echo "COUNT $i"; done
+          

@@ -1,0 +1,25 @@
+vector-agent:
+  vectorSink:
+    config:
+      version: "2"
+
+vector-aggregator:
+  vectorSource:
+    sourceId: vector
+    config:
+      version: "2"
+
+  sinks:
+    stdout:
+      type: "console"
+      inputs: ["vector"]
+      target: "stdout"
+      encoding: "json"
+    http:
+      type: "http"
+      inputs: ["vector"]
+      uri: http://checker:8000/log
+      compression: none
+      encoding:
+        codec: json
+
